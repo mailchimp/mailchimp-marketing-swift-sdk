@@ -1,0 +1,14 @@
+{
+  "cliVersion": "5.89.4",
+  "generatorName": "fernapi/fern-swift-sdk",
+  "generatorVersion": "0.36.1",
+  "generatorConfig": {
+    "clientClassName": "MailchimpClient",
+    "moduleName": "Mailchimp"
+  },
+  "originGitCommit": "384aaf6a41058d842e2bd8e463c291ffed6c8a46",
+  "originGitCommitIsDirty": false,
+  "invokedBy": "ci",
+  "ciProvider": "github",
+  "sdkVersion": "0.0.122"
+}
