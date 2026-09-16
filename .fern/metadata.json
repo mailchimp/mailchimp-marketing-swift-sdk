@@ -6,9 +6,9 @@
     "clientClassName": "MailchimpClient",
     "moduleName": "Mailchimp"
   },
-  "originGitCommit": "384aaf6a41058d842e2bd8e463c291ffed6c8a46",
+  "originGitCommit": "ade6eda97ecb66ede512e91ba4e677a24871de58",
   "originGitCommitIsDirty": false,
   "invokedBy": "ci",
   "ciProvider": "github",
-  "sdkVersion": "0.0.122"
+  "sdkVersion": "0.0.202"
 }
