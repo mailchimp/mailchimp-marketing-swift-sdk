@@ -58,13 +58,13 @@ public final class BatchWebhooksClient: Sendable {
     /// ```
     ///
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func create(request: Requests.CreateBatchWebhooksRequest, requestOptions: RequestOptions? = nil) async throws -> BatchWebhook {
+    public func create(request: Requests.CreateBatchWebhooksRequest, requestOptions: RequestOptions? = nil) async throws -> CreateBatchWebhooksResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/3.0/batch-webhooks",
             body: request,
             requestOptions: requestOptions,
-            responseType: BatchWebhook.self
+            responseType: CreateBatchWebhooksResponse.self
         )
     }
 

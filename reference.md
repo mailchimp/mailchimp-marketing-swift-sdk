@@ -479,6 +479,625 @@ try await main()
 </dl>
 </details>
 
+## Audiences
+<details><summary><code>client.audiences.<a href="/Sources/Resources/Audiences/AudiencesClient.swift">getAudienceContactList</a>(audienceId: String, fields: [String]?, excludeFields: [String]?, count: Int?, cursor: String?, createdBefore: Date?, createdSince: Date?, updatedBefore: Date?, updatedSince: Date?, sortField: GetAudienceContactListRequestSortField?, sortDir: GetAudienceContactListRequestSortDir?, requestOptions: RequestOptions?) -> GetAudienceContactListResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a list of omni-channel contacts for a given audience.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Mailchimp
+
+private func main() async throws {
+    let client = MailchimpClient(token: "<token>")
+
+    _ = try await client.audiences.getAudienceContactList(audienceId: "audience_id")
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**audienceId:** `String` — The unique ID for the audience.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fields:** `[String]?` — A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**excludeFields:** `[String]?` — A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**count:** `Int?` — The number of records to return. Default value is 10. Maximum value is 1000
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**cursor:** `String?` — Paginate through a collection of records by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request. Default value fetches the first "page" of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**createdBefore:** `Date?` — Restricts the response to contacts created at or before the specified time (inclusive). Uses ISO 8601 format: 2025-04-23T15:41:36+00:00.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**createdSince:** `Date?` — Restricts the response to contacts created after the specified time (exclusive). Uses ISO 8601 format: 2025-04-23T15:41:36+00:00.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**updatedBefore:** `Date?` — Restricts the response to contacts updated at or before the specified time (inclusive). Uses ISO 8601 format: 2025-04-23T15:41:36+00:00.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**updatedSince:** `Date?` — Restricts the response to contacts updated after the specified time (exclusive). Uses ISO 8601 format: 2025-04-23T15:41:36+00:00.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sortField:** `GetAudienceContactListRequestSortField?` — Specifies the field to sort the returned contacts by.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sortDir:** `GetAudienceContactListRequestSortDir?` — Determines the order direction for sorted results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.audiences.<a href="/Sources/Resources/Audiences/AudiencesClient.swift">createAudienceContact</a>(audienceId: String, mergeFieldValidationMode: CreateAudienceContactRequestMergeFieldValidationMode?, dataMode: CreateAudienceContactRequestDataMode?, request: Requests.CreateAudienceContactRequest, requestOptions: RequestOptions?) -> AudiencesContact</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a new omni-channel contact for an audience.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Mailchimp
+
+private func main() async throws {
+    let client = MailchimpClient(token: "<token>")
+
+    _ = try await client.audiences.createAudienceContact(
+        audienceId: "audience_id",
+        request: .init()
+    )
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**audienceId:** `String` — The unique ID for the audience.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**mergeFieldValidationMode:** `CreateAudienceContactRequestMergeFieldValidationMode?` — Defines how merge field validation is handled. When set to `ignore_required_checks`, the API does not raise an error if required merge fields are missing from the request. When set to `strict`, the API enforces validation and returns an error if any required merge field is not provided. If this setting is omitted, `strict` is applied by default.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**dataMode:** `CreateAudienceContactRequestDataMode?` — Indicates the data processing mode. In `historical` mode, contact data changes do not trigger automations or webhooks. In `live mode`, such changes do trigger them.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `Requests.CreateAudienceContactRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.audiences.<a href="/Sources/Resources/Audiences/AudiencesClient.swift">getAudienceContact</a>(audienceId: String, contactId: String, fields: [String]?, excludeFields: [String]?, requestOptions: RequestOptions?) -> AudiencesContact</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Retrieve a specific omni-channel contact in an audience.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Mailchimp
+
+private func main() async throws {
+    let client = MailchimpClient(token: "<token>")
+
+    _ = try await client.audiences.getAudienceContact(
+        audienceId: "audience_id",
+        contactId: "contact_id"
+    )
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**audienceId:** `String` — The unique ID for the audience.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**contactId:** `String` — A unique identifier for the contact, which can be a Mailchimp contact ID or a channel hash. A channel hash must follow the format email:[md5_hash] (where the hash is the MD5 of the lowercased email address) or sms:[sha256_hash] (where the hash is the SHA256 of the E.164-formatted phone number).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fields:** `[String]?` — A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**excludeFields:** `[String]?` — A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.audiences.<a href="/Sources/Resources/Audiences/AudiencesClient.swift">patchAudienceContact</a>(audienceId: String, contactId: String, mergeFieldValidationMode: PatchAudienceContactRequestMergeFieldValidationMode?, dataMode: PatchAudienceContactRequestDataMode?, request: Requests.PatchAudienceContactRequest, requestOptions: RequestOptions?) -> AudiencesContact</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update an existing omni-channel contact.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Mailchimp
+
+private func main() async throws {
+    let client = MailchimpClient(token: "<token>")
+
+    _ = try await client.audiences.patchAudienceContact(
+        audienceId: "audience_id",
+        contactId: "contact_id",
+        request: .init()
+    )
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**audienceId:** `String` — The unique ID for the audience.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**contactId:** `String` — The unique id for the contact.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**mergeFieldValidationMode:** `PatchAudienceContactRequestMergeFieldValidationMode?` — Defines how merge field validation is handled. When set to `ignore_required_checks`, the API does not raise an error if required merge fields are missing from the request. When set to `strict`, the API enforces validation and returns an error if any required merge field is not provided. If this setting is omitted, `strict` is applied by default.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**dataMode:** `PatchAudienceContactRequestDataMode?` — Indicates the data processing mode. In `historical` mode, contact data changes do not trigger automations or webhooks. In `live mode`, such changes do trigger them.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `Requests.PatchAudienceContactRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.audiences.<a href="/Sources/Resources/Audiences/AudiencesClient.swift">postAudiencesContactsActionsArchive</a>(audienceId: String, contactId: String, requestOptions: RequestOptions?) -> Void</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Archives a Contact.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Mailchimp
+
+private func main() async throws {
+    let client = MailchimpClient(token: "<token>")
+
+    _ = try await client.audiences.postAudiencesContactsActionsArchive(
+        audienceId: "audience_id",
+        contactId: "contact_id"
+    )
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**audienceId:** `String` — The unique ID for the audience.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**contactId:** `String` — The unique id for the contact.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.audiences.<a href="/Sources/Resources/Audiences/AudiencesClient.swift">postAudiencesContactsActionsForget</a>(audienceId: String, contactId: String, requestOptions: RequestOptions?) -> Void</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Forgets a Contact.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```swift
+import Foundation
+import Mailchimp
+
+private func main() async throws {
+    let client = MailchimpClient(token: "<token>")
+
+    _ = try await client.audiences.postAudiencesContactsActionsForget(
+        audienceId: "audience_id",
+        contactId: "contact_id"
+    )
+}
+
+try await main()
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**audienceId:** `String` — The unique ID for the audience.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**contactId:** `String` — The unique id for the contact.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `RequestOptions?` — Additional options for configuring the request, such as custom headers or timeout settings.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## AuthorizedApps
 <details><summary><code>client.authorizedApps.<a href="/Sources/Resources/AuthorizedApps/AuthorizedAppsClient.swift">list</a>(fields: [String]?, excludeFields: [String]?, count: Int?, offset: Int?, requestOptions: RequestOptions?) -> ListAuthorizedAppsResponse</code></summary>
 <dl>
@@ -2261,7 +2880,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.batchWebhooks.<a href="/Sources/Resources/BatchWebhooks/BatchWebhooksClient.swift">create</a>(request: Requests.CreateBatchWebhooksRequest, requestOptions: RequestOptions?) -> BatchWebhook</code></summary>
+<details><summary><code>client.batchWebhooks.<a href="/Sources/Resources/BatchWebhooks/BatchWebhooksClient.swift">create</a>(request: Requests.CreateBatchWebhooksRequest, requestOptions: RequestOptions?) -> CreateBatchWebhooksResponse</code></summary>
 <dl>
 <dd>
 
@@ -20462,7 +21081,7 @@ try await main()
 </dl>
 </details>
 
-<details><summary><code>client.lists.<a href="/Sources/Resources/Lists/ListsClient.swift">createWebhook</a>(listId: String, request: AddWebhook, requestOptions: RequestOptions?) -> ListWebhooks</code></summary>
+<details><summary><code>client.lists.<a href="/Sources/Resources/Lists/ListsClient.swift">createWebhook</a>(listId: String, request: AddWebhook, requestOptions: RequestOptions?) -> CreateWebhookListsResponse</code></summary>
 <dl>
 <dd>
 

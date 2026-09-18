@@ -29,7 +29,6 @@ import Mailchimp
                       "enabled": true,
                       "id": "id",
                       "signing_enabled": true,
-                      "signing_secret": "zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM",
                       "url": "http://yourdomain.com/webhook"
                     }
                   ]
@@ -65,7 +64,6 @@ import Mailchimp
                     enabled: Optional(true),
                     id: Optional("id"),
                     signingEnabled: Optional(true),
-                    signingSecret: Optional("zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM"),
                     url: Optional("http://yourdomain.com/webhook")
                 )
             ])
@@ -88,8 +86,8 @@ import Mailchimp
                   "enabled": true,
                   "id": "id",
                   "signing_enabled": true,
-                  "signing_secret": "zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM",
-                  "url": "http://yourdomain.com/webhook"
+                  "url": "http://yourdomain.com/webhook",
+                  "signing_secret": "zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM"
                 }
                 """#.utf8
             )
@@ -99,7 +97,7 @@ import Mailchimp
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = BatchWebhook(
+        let expectedResponse = CreateBatchWebhooksResponse(
             links: Optional([
                 [
                     BatchWebhookLinksItemItem(
@@ -110,8 +108,8 @@ import Mailchimp
             enabled: Optional(true),
             id: Optional("id"),
             signingEnabled: Optional(true),
-            signingSecret: Optional("zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM"),
-            url: Optional("http://yourdomain.com/webhook")
+            url: Optional("http://yourdomain.com/webhook"),
+            signingSecret: Optional("zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM")
         )
         let response = try await client.batchWebhooks.create(
             request: .init(url: "http://yourdomain.com/webhook"),
@@ -134,7 +132,6 @@ import Mailchimp
                   "enabled": true,
                   "id": "id",
                   "signing_enabled": true,
-                  "signing_secret": "zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM",
                   "url": "http://yourdomain.com/webhook"
                 }
                 """#.utf8
@@ -156,7 +153,6 @@ import Mailchimp
             enabled: Optional(true),
             id: Optional("id"),
             signingEnabled: Optional(true),
-            signingSecret: Optional("zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM"),
             url: Optional("http://yourdomain.com/webhook")
         )
         let response = try await client.batchWebhooks.get(
@@ -180,7 +176,6 @@ import Mailchimp
                   "enabled": true,
                   "id": "id",
                   "signing_enabled": true,
-                  "signing_secret": "zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM",
                   "url": "http://yourdomain.com/webhook"
                 }
                 """#.utf8
@@ -202,7 +197,6 @@ import Mailchimp
             enabled: Optional(true),
             id: Optional("id"),
             signingEnabled: Optional(true),
-            signingSecret: Optional("zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM"),
             url: Optional("http://yourdomain.com/webhook")
         )
         let response = try await client.batchWebhooks.update(
