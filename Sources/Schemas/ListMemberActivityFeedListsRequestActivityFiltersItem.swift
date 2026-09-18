@@ -26,9 +26,4 @@ public enum ListMemberActivityFeedListsRequestActivityFiltersItem: String, Codab
     case videoCallTranscripts = "video_call_transcripts"
     case whatsappBulkSent = "whatsapp_bulk_sent"
     case whatsappDelivered = "whatsapp_delivered"
-    case whatsappLinkClick = "whatsapp_link_click"
-    case whatsappSubscribe = "whatsapp_subscribe"
-    case whatsappSubscriptionPhoneUpdated = "whatsapp_subscription_phone_updated"
-    case whatsappUnsubscribe = "whatsapp_unsubscribe"
-    case whatsappUsedKeyword = "whatsapp_used_keyword"
 }

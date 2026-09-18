@@ -1,53 +1,47 @@
 import Foundation
 
-/// Webhook configured for the given list.
-public struct ListWebhooks: Codable, Hashable, Sendable {
+public struct CreateBatchWebhooksResponse: Codable, Hashable, Sendable {
     /// A list of link types and descriptions for the API schema documents.
-    public let links: [ListWebhooksLinksItem]?
-    /// The events that can trigger the webhook and whether they are enabled.
-    public let events: ListWebhooksEvents?
-    /// An string that uniquely identifies this webhook.
+    public let links: [[BatchWebhookLinksItemItem]]?
+    /// Whether the webhook receives requests or not.
+    public let enabled: Bool?
+    /// A string that uniquely identifies this Batch Webhook.
     public let id: String?
-    /// The unique id for the list.
-    public let listId: String?
     /// Whether outbound deliveries are HMAC-signed.
     public let signingEnabled: Bool?
-    /// The possible sources of any events that can trigger the webhook and whether they are enabled.
-    public let sources: ListWebhooksSources?
     /// A valid URL for the Webhook.
     public let url: String?
+    /// The HMAC signing secret. Returned exactly once at creation. This should be stored securely; if lost, delete and recreate the webhook to obtain a new secret.
+    public let signingSecret: String?
     /// Additional properties that are not explicitly defined in the schema
     public let additionalProperties: [String: JSONValue]
 
     public init(
-        links: [ListWebhooksLinksItem]? = nil,
-        events: ListWebhooksEvents? = nil,
+        links: [[BatchWebhookLinksItemItem]]? = nil,
+        enabled: Bool? = nil,
         id: String? = nil,
-        listId: String? = nil,
         signingEnabled: Bool? = nil,
-        sources: ListWebhooksSources? = nil,
         url: String? = nil,
+        signingSecret: String? = nil,
         additionalProperties: [String: JSONValue] = .init()
     ) {
         self.links = links
-        self.events = events
+        self.enabled = enabled
         self.id = id
-        self.listId = listId
         self.signingEnabled = signingEnabled
-        self.sources = sources
         self.url = url
+        self.signingSecret = signingSecret
         self.additionalProperties = additionalProperties
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.links = try container.decodeIfPresent([ListWebhooksLinksItem].self, forKey: .links)
-        self.events = try container.decodeIfPresent(ListWebhooksEvents.self, forKey: .events)
+        self.links = try container.decodeIfPresent([[BatchWebhookLinksItemItem]].self, forKey: .links)
+        self.enabled = try container.decodeIfPresent(Bool.self, forKey: .enabled)
         self.id = try container.decodeIfPresent(String.self, forKey: .id)
-        self.listId = try container.decodeIfPresent(String.self, forKey: .listId)
         self.signingEnabled = try container.decodeIfPresent(Bool.self, forKey: .signingEnabled)
-        self.sources = try container.decodeIfPresent(ListWebhooksSources.self, forKey: .sources)
         self.url = try container.decodeIfPresent(String.self, forKey: .url)
+        self.signingSecret = try container.decodeIfPresent(String.self, forKey: .signingSecret)
         self.additionalProperties = try decoder.decodeAdditionalProperties(using: CodingKeys.self)
     }
 
@@ -55,22 +49,20 @@ public struct ListWebhooks: Codable, Hashable, Sendable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encodeIfPresent(self.links, forKey: .links)
-        try container.encodeIfPresent(self.events, forKey: .events)
+        try container.encodeIfPresent(self.enabled, forKey: .enabled)
         try container.encodeIfPresent(self.id, forKey: .id)
-        try container.encodeIfPresent(self.listId, forKey: .listId)
         try container.encodeIfPresent(self.signingEnabled, forKey: .signingEnabled)
-        try container.encodeIfPresent(self.sources, forKey: .sources)
         try container.encodeIfPresent(self.url, forKey: .url)
+        try container.encodeIfPresent(self.signingSecret, forKey: .signingSecret)
     }
 
     /// Keys for encoding/decoding struct properties.
     enum CodingKeys: String, CodingKey, CaseIterable {
         case links = "_links"
-        case events
+        case enabled
         case id
-        case listId = "list_id"
         case signingEnabled = "signing_enabled"
-        case sources
         case url
+        case signingSecret = "signing_secret"
     }
 }

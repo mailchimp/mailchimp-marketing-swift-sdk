@@ -2348,13 +2348,13 @@ public final class ListsClient: Sendable {
     ///
     /// - Parameter listId: The unique ID for the list.
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func createWebhook(listId: String, request: AddWebhook, requestOptions: RequestOptions? = nil) async throws -> ListWebhooks {
+    public func createWebhook(listId: String, request: AddWebhook, requestOptions: RequestOptions? = nil) async throws -> CreateWebhookListsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/3.0/lists/\(listId)/webhooks",
             body: request,
             requestOptions: requestOptions,
-            responseType: ListWebhooks.self
+            responseType: CreateWebhookListsResponse.self
         )
     }
 

@@ -5,6 +5,7 @@ public final class MailchimpClient: Sendable {
     public let root: RootClient
     public let accountExports: AccountExportsClient
     public let activityFeed: ActivityFeedClient
+    public let audiences: AudiencesClient
     public let authorizedApps: AuthorizedAppsClient
     public let automations: AutomationsClient
     public let batchWebhooks: BatchWebhooksClient
@@ -110,6 +111,7 @@ public final class MailchimpClient: Sendable {
         self.root = RootClient(config: config)
         self.accountExports = AccountExportsClient(config: config)
         self.activityFeed = ActivityFeedClient(config: config)
+        self.audiences = AudiencesClient(config: config)
         self.authorizedApps = AuthorizedAppsClient(config: config)
         self.automations = AutomationsClient(config: config)
         self.batchWebhooks = BatchWebhooksClient(config: config)

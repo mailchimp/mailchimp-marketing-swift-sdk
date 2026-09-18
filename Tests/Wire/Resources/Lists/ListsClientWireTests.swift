@@ -4961,7 +4961,6 @@ import Mailchimp
                       "id": "5d9a5e3f7b",
                       "list_id": "4ca5becb8d",
                       "signing_enabled": true,
-                      "signing_secret": "zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM",
                       "sources": {
                         "admin": true,
                         "api": true,
@@ -5013,7 +5012,6 @@ import Mailchimp
                     id: Optional("5d9a5e3f7b"),
                     listId: Optional("4ca5becb8d"),
                     signingEnabled: Optional(true),
-                    signingSecret: Optional("zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM"),
                     sources: Optional(ListWebhooksSources(
                         admin: Optional(true),
                         api: Optional(true),
@@ -5060,13 +5058,13 @@ import Mailchimp
                   "id": "5d9a5e3f7b",
                   "list_id": "4ca5becb8d",
                   "signing_enabled": true,
-                  "signing_secret": "zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM",
                   "sources": {
                     "admin": true,
                     "api": true,
                     "user": true
                   },
-                  "url": "http://yourdomain.com/webhook"
+                  "url": "http://yourdomain.com/webhook",
+                  "signing_secret": "zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM"
                 }
                 """#.utf8
             )
@@ -5076,7 +5074,7 @@ import Mailchimp
             token: "<token>",
             urlSession: stub.urlSession
         )
-        let expectedResponse = ListWebhooks(
+        let expectedResponse = CreateWebhookListsResponse(
             links: Optional([
                 ListWebhooksLinksItem(
                     href: Optional("href"),
@@ -5101,13 +5099,13 @@ import Mailchimp
             id: Optional("5d9a5e3f7b"),
             listId: Optional("4ca5becb8d"),
             signingEnabled: Optional(true),
-            signingSecret: Optional("zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM"),
             sources: Optional(ListWebhooksSources(
                 admin: Optional(true),
                 api: Optional(true),
                 user: Optional(true)
             )),
-            url: Optional("http://yourdomain.com/webhook")
+            url: Optional("http://yourdomain.com/webhook"),
+            signingSecret: Optional("zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM")
         )
         let response = try await client.lists.createWebhook(
             listId: "list_id",
@@ -5149,7 +5147,6 @@ import Mailchimp
                   "id": "5d9a5e3f7b",
                   "list_id": "4ca5becb8d",
                   "signing_enabled": true,
-                  "signing_secret": "zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM",
                   "sources": {
                     "admin": true,
                     "api": true,
@@ -5190,7 +5187,6 @@ import Mailchimp
             id: Optional("5d9a5e3f7b"),
             listId: Optional("4ca5becb8d"),
             signingEnabled: Optional(true),
-            signingSecret: Optional("zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM"),
             sources: Optional(ListWebhooksSources(
                 admin: Optional(true),
                 api: Optional(true),
@@ -5236,7 +5232,6 @@ import Mailchimp
                   "id": "5d9a5e3f7b",
                   "list_id": "4ca5becb8d",
                   "signing_enabled": true,
-                  "signing_secret": "zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM",
                   "sources": {
                     "admin": true,
                     "api": true,
@@ -5277,7 +5272,6 @@ import Mailchimp
             id: Optional("5d9a5e3f7b"),
             listId: Optional("4ca5becb8d"),
             signingEnabled: Optional(true),
-            signingSecret: Optional("zI3tsLziqBWhlz6V4PRlGg41u0gdhu7LhYXX4wa0ARM"),
             sources: Optional(ListWebhooksSources(
                 admin: Optional(true),
                 api: Optional(true),
