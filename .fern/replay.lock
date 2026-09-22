@@ -18,14 +18,20 @@ generations:
     cli_version: unknown
     generator_versions:
       fernapi/fern-swift-sdk: 0.36.1
-current_generation: f3dc1be37b5870028527de00df7cec00708b3919
+  - commit_sha: ed81ff5529eebff2a622f6ae7f6b7405ade97206
+    tree_hash: fc1ed7722ef4db83794539283a22f594ee970a7a
+    timestamp: 2026-09-22T21:37:30.863Z
+    cli_version: unknown
+    generator_versions:
+      fernapi/fern-swift-sdk: 0.36.2
+current_generation: ed81ff5529eebff2a622f6ae7f6b7405ade97206
 patches:
   - id: patch-50fa600f
     content_hash: sha256:5aa0ab7d1c9a8fc8707af20bf7b288559814ade3249c18db4e3a761713e2f91a
     original_commit: 50fa600f74f0b48dffe4d104e729c399f83ec599
     original_message: Create LICENSE file
     original_author: Keith Baxter <keith_baxter@intuit.com>
-    base_generation: f3dc1be37b5870028527de00df7cec00708b3919
+    base_generation: ed81ff5529eebff2a622f6ae7f6b7405ade97206
     files:
       - LICENSE
       - NOTICE
